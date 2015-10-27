@@ -4,7 +4,7 @@
 ** any purpose.
 **
 ** trees.cpp
-** Implemented frequently asked interview questions on trees (Reference: geeksforgeeks.com)
+** Implemented frequently asked interview questions on trees (Reference: geeksforgeeks.org)
 **
 ** Author: Naveen SR
 ** @author Naveen SR
@@ -31,6 +31,7 @@ struct bt* createBt(int a)
     return node;
 }
 
+/*http://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/*/
 int LCA(struct bt *root, int v1, int v2)
 {
     if(root == NULL)
@@ -59,6 +60,7 @@ int countNodes(struct bt* root) {
   return nodes;
 }
 
+/*http://www.geeksforgeeks.org/618/*/
 void printInOrder(struct bt *root)
 {
     if(root == NULL)
@@ -68,6 +70,7 @@ void printInOrder(struct bt *root)
     printInOrder(root->right);
 }
 
+/* http://www.geeksforgeeks.org/write-a-c-program-to-calculate-size-of-a-tree/ */
 int size(struct bt* root)
 {
     if(root == NULL)
@@ -87,6 +90,7 @@ struct bt* copy(struct bt* t1)
     return t2;
 }
 
+/*http://www.geeksforgeeks.org/write-c-code-to-determine-if-two-trees-are-identical/*/
 int isIdentical(struct bt* t1, struct bt* t2)
 {
     if(t1 == NULL && t2 == NULL)
@@ -98,6 +102,7 @@ int isIdentical(struct bt* t1, struct bt* t2)
 
 #define MAX(a,b) ((a)>(b) ? (a): (b))
 
+/*http://www.geeksforgeeks.org/write-a-c-program-to-find-the-maximum-depth-or-height-of-a-tree/*/
 int maxDepth(struct bt* t1, int curDepth)
 {
     if(t1==NULL)
@@ -105,6 +110,7 @@ int maxDepth(struct bt* t1, int curDepth)
     return MAX(maxDepth(t1->left,curDepth+1),maxDepth(t1->right,curDepth+1));
 }
 
+/*http://www.geeksforgeeks.org/write-a-c-program-to-delete-a-tree/*/
 int deleteBt(struct bt *t)
 {
     if(t == NULL)
@@ -115,6 +121,7 @@ int deleteBt(struct bt *t)
     return 1;
 }
 
+/*http://www.geeksforgeeks.org/write-an-efficient-c-function-to-convert-a-tree-into-its-mirror-tree/*/
 int mirrorTree(struct bt *t)
 {
     if(t == NULL)
@@ -137,6 +144,7 @@ void printArr(int *arr, int l)
     printf("\n");
 }
 
+/*http://www.geeksforgeeks.org/given-a-binary-tree-print-out-all-of-its-root-to-leaf-paths-one-per-line/*/
 void printRootToLeaf(struct bt * t, int l)
 {
     if(t == NULL)
@@ -167,6 +175,7 @@ void buildLevelOrder(struct bt* t, int l)
     buildLevelOrder(t->right,l+1);
 }
 
+/*http://www.geeksforgeeks.org/level-order-tree-traversal/*/
 void printLevelOrderTraversal(struct bt* t)
 {
     buildLevelOrder(t,0);
@@ -227,6 +236,8 @@ void printLevelOrderTraversalQueue(struct bt* t)
     }
 }
 
+
+/*http://www.geeksforgeeks.org/write-a-c-program-to-get-count-of-leaf-nodes-in-a-binary-tree/*/
 int countLeafNodes(struct bt *t)
 {
     if(t == NULL)
@@ -236,6 +247,7 @@ int countLeafNodes(struct bt *t)
     return countLeafNodes(t->left) + countLeafNodes(t->right);
 }
 
+/*http://www.geeksforgeeks.org/check-for-children-sum-property-in-a-binary-tree/*/
 int checkNodeEqualsChildrenSum(struct bt *t)
 {
     if(t == NULL)
@@ -398,7 +410,7 @@ void printThreadedMorrisTravel(struct bt* t)
 }
 int main()
 {
-
+    int diameter = 0;
     struct bt* t1;
     struct bt * t2 = NULL;
     struct bt * t3 = NULL;
@@ -475,7 +487,7 @@ int main()
     cout << "\nprintInorder: t1:" ;  printInOrder(t1);
     cout << "\nconvertNodeEqualsChildrenSum: t1:"; convertNodeEqualsChildrenSum(t1);
     cout << "\nprintInorder: t1:" ;  printInOrder(t1);
-    int diameter = 0;
+    diameter = 0;
     diameterOfTree(t1,&diameter);
     cout << "\ndiameterOfTree: t1:" << diameter;
     diameter = 0;
